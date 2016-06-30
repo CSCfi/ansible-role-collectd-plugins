@@ -1,0 +1,38 @@
+---
+# tasks file for ansible-role-nrpe-plugins
+
+# When upgrading to ansible 2.0 sha256sum needs to be replaced with checksum=
+ - name: Create plugin path
+   file: path={{ collectd_plugin_location }} state=directory owner={{ collectd_user }} group={{ collectd_group }} mode="0755"
+
+ - name: Create optional plugin directories
+   file: path={{ collectd_plugin_location }}/{{item.directory}} state=directory owner={{ collectd_user }} group={{ collectd_group }} mode="0755"
+   with_items: "{{ collectd_plugin_all_plugins }}"
+   when: item.directory is defined
+
+ - name: get_url the remote checks
+   get_url: url={{ item.url }} dest={{ collectd_plugin_location }}/{{ item.directory | default("") }}/{{ item.name }} 
+            owner={{ collectd_user }} group={{ collectd_group }} mode={{ collectd_plugin_file_mode }}
+            sha256sum={{ item.checksum }}
+   with_items: "{{ collectd_plugin_all_plugins }}"
+   when: item.url is defined
+
+ - name: copy the local checks
+   copy: src={{ item.path }} dest={{ collectd_plugin_location }}/{{ item.directory | default("") }}/{{ item.name }} owner={{ collectd_user }} group={{ collectd_group }} mode={{ collectd_plugin_file_mode }}
+   with_items: "{{ collectd_plugin_all_plugins }}"
+   when: item.path is defined
+
+ - name: Configure python checks
+   template: src=python_plugin.conf.j2 dest={{ collectd_conf_dir }}/{{ item.name }}.conf owner=root mode=0644
+   with_items: "{{ collectd_plugin_python_plugins }}"
+   when: item.import is defined
+   notify:
+     - restart collectd
+
+ - name: Configure_exec checks
+   template: src=exec_plugin.conf.j2 dest={{ collectd_conf_dir }}/{{ item.name }}.conf owner=root mode=0644
+   with_items: "{{ collectd_plugin_exec_plugins }}"
+   when: item.command is defined
+   notify:
+     - restart collectd
+

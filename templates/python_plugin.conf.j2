@@ -1,0 +1,18 @@
+# {{ ansible_managed }}
+##
+
+<LoadPlugin "python">
+    Globals true
+</LoadPlugin>
+
+<Plugin "python">
+    ModulePath "{{ collectd_plugin_location }} / {{ item.directory | default("") }}"
+
+    Import "{{ item.import }}"
+
+    <Module "{{ item.import }}" >
+{% for i in item.module_config  %}
+        {{ i.key }} "{{ i.value }}"
+{% endfor %}
+    </Module>
+</Plugin>

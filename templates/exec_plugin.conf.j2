@@ -1,0 +1,9 @@
+# {{ ansible_managed }}
+##
+
+<LoadPlugin "exec">
+</LoadPlugin>
+
+<Plugin "exec">
+    Exec "{{ item.user }}" "{{ item.command }}"
+</Plugin>
