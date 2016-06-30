@@ -1,5 +1,5 @@
 ---
-# tasks file for ansible-role-nrpe-plugins
+# tasks file for ansible-role-collectd-plugins
 
 # When upgrading to ansible 2.0 sha256sum needs to be replaced with checksum=
  - name: Create plugin path

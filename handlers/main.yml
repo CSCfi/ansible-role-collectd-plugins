@@ -1,5 +1,5 @@
 ---
-# handlers file for ansible-role-nrpe
+# handlers file for ansible-role-collectd-plugins
 #
  - name: restart collectd
    service: name=collectd state=restarted

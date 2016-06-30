@@ -1,4 +1,4 @@
-ansible-role-nrpe-plugins
+ansible-role-collectd-plugins
 =========
 
 [![Build Status](https://travis-ci.org/CSC-IT-Center-for-Science/ansible-role-collectd-plugins.svg?branch=master)](https://travis-ci.org/CSC-IT-Center-for-Science/ansible-role-collectd-plugins)
