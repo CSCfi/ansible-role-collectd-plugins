@@ -2,5 +2,10 @@
 
  - hosts: localhost
    remote_user: root
+   vars:
+       - collectd_plugin_exec_plugins:
+         - { url: "https://raw.githubusercontent.com/lunetics/collectd-plugins/32d751ed913b1e1d84bf78a4848648fb63379689/ipmitool/ipmitool.sh", name: "ipmitool.sh", checksum: "b349052bbcf70e36706fbf814697b123e8e8a00f2bb0c8ab93975e5d89da2383", user: "nobody:nobody", command: "/usr/local/collectd/plugins/ipmitool.sh" }
+
    roles:
+     - ansible-role-collectd
      - ansible-role-collectd-plugins
