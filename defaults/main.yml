@@ -4,7 +4,7 @@
 collectd_user: "root"
 collectd_group: "root"
 collectd_plugin_file_mode: "0555"
-collectd_plugin_location: "/usr/local/collectd/plugins/"
+collectd_plugin_location: "/usr/local/collectd/plugins"
 collectd_conf_dir: "/etc/collectd.d"
 
 collectd_plugin_python_plugins: []

@@ -6,7 +6,7 @@
 </LoadPlugin>
 
 <Plugin "python">
-    ModulePath "{{ collectd_plugin_location }} / {{ item.directory | default("") }}"
+    ModulePath "{{ collectd_plugin_location }}/{{ item.directory | default("") }}"
 
     Import "{{ item.import }}"
 
