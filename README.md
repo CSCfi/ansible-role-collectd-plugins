@@ -26,11 +26,11 @@ collectd_plugin_exec_plugins:
 collectd_plugin_python_plugins:
   - { path: "../files/ceph_collectd/__init__.py", directory: "ceph", name: "__init__.py" }
   - { path: "../files/ceph_collectd/base.py", directory: "ceph", name: "base.py" }
-  - { path: "../files/ceph_collectd/ceph_latency_plugin.py", directory: "ceph", name: "ceph_latency_plugin.py", import: "ceph_latency_plugin",  module_config: [ { key: "Verbose", value: "True" }, { key: "Cluster", value: "ceph" }, { key: "Interval", value: "60" }] }
-  - { path: "../files/ceph_collectd/ceph_monitor_plugin.py", directory: "ceph", name: "ceph_monitor_plugin.py", import: "ceph_monitor_plugin",  module_config: [ { key: "Verbose", value: "True" }, { key: "Cluster", value: "ceph" }, { key: "Interval", value: "60" }]  }
-  - { path: "../files/ceph_collectd/ceph_osd_plugin.py", directory: "ceph", name: "ceph_osd_plugin.py", import: "ceph_osd_plugin",  module_config: [ { key: "Verbose", value: "True" }, { key: "Cluster", value: "ceph" }, { key: "Interval", value: "60" }] }
-  - { path: "../files/ceph_collectd/ceph_pg_plugin.py", directory: "ceph", name: "ceph_pg_plugin.py", import: "ceph_pg_plugin",  module_config: [ { key: "Verbose", value: "True" }, { key: "Cluster", value: "ceph" }, { key: "Interval", value: "60" }] }
-  - { path: "../files/ceph_collectd/ceph_pool_plugin.py", directory: "ceph", name: "ceph_pool_plugin.py", import: "ceph_pool_plugin",  module_config: [ { key: "Verbose", value: "True" }, { key: "Cluster", value: "ceph" }, { key: "Interval", value: "60" }, { key: "TestPool", value: "test" } ]  }
+  - { path: "../files/ceph_collectd/ceph_latency_plugin.py", directory: "ceph", name: "ceph_latency_plugin.py", import: "ceph_latency_plugin",  module_config: [ { "Verbose": "True", "Cluster": "ceph", "Interval": "60" } ] }
+  - { path: "../files/ceph_collectd/ceph_monitor_plugin.py", directory: "ceph", name: "ceph_monitor_plugin.py", import: "ceph_monitor_plugin",  module_config: [ { "Verbose": "True", "Cluster": "ceph", "Interval": "60" }]  }
+  - { path: "../files/ceph_collectd/ceph_osd_plugin.py", directory: "ceph", name: "ceph_osd_plugin.py", import: "ceph_osd_plugin",  module_config: [ { "Verbose": "True", "Cluster": "ceph", "Interval": "60" }] }
+  - { path: "../files/ceph_collectd/ceph_pg_plugin.py", directory: "ceph", name: "ceph_pg_plugin.py", import: "ceph_pg_plugin",  module_config: [ { "Verbose": "True", "Cluster": "ceph", "Interval": "60" }] }
+  - { path: "../files/ceph_collectd/ceph_pool_plugin.py", directory: "ceph", name: "ceph_pool_plugin.py", import: "ceph_pool_plugin",  module_config: [ { "Verbose": "True", "Cluster": "ceph", "Interval": "60", "TestPool": "test" } ]  }
 </pre>
 
 Dependencies

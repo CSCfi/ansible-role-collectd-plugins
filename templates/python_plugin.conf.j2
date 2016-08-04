@@ -10,9 +10,12 @@
 
     Import "{{ item.import }}"
 
-    <Module "{{ item.import }}" >
 {% for i in item.module_config  %}
-        {{ i.key }} "{{ i.value }}"
+    <Module "{{ item.import }}">
+{% for key, value in i.iteritems()  %}
+        {{ key }} "{{ value }}"
 {% endfor %}
     </Module>
+{% endfor %}
+
 </Plugin>
