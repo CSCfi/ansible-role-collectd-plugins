@@ -91,9 +91,9 @@ function test_ansible_setup(){
 
 
 function test_install_requirements(){
-    echo "TEST: ansible-galaxy install -r requirements.yml --force"
+    echo "TEST: ansible-galaxy install -r tests/requirements.yml --force"
 
-    ansible-galaxy install -r requirements.yml --force ||(echo "requirements install failed" && exit 2 )
+    ansible-galaxy install -r tests/requirements.yml --force ||(echo "requirements install failed" && exit 2 )
 
 }
 
@@ -119,7 +119,9 @@ function test_playbook(){
 }
 function extra_tests(){
 
-    ${APACHE_CTL} configtest || (echo "php --version was failed" && exit 100 )
+    echo "TEST: cat resulting collectd config files"
+    ls -l /etc/collectd.d/
+    cat /etc/collectd.d/*
 }
 
 
@@ -129,12 +131,12 @@ function main(){
 #    install_ansible_devel
     show_version
 #    tree_list
-#    test_install_requirements
+    test_install_requirements
     test_ansible_setup
     test_playbook_syntax
     test_playbook
     test_playbook_check
-#    extra_tests
+    extra_tests
 
 }
 
