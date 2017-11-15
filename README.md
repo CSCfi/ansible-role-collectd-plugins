@@ -1,7 +1,7 @@
 ansible-role-collectd-plugins
 =========
 
-[![Build Status](https://travis-ci.org/CSC-IT-Center-for-Science/ansible-role-collectd-plugins.svg?branch=master)](https://travis-ci.org/CSC-IT-Center-for-Science/ansible-role-collectd-plugins)
+[![Build Status](https://travis-ci.org/CSCfi/ansible-role-collectd-plugins.svg?branch=master)](https://travis-ci.org/CSCfi/ansible-role-collectd-plugins)
 
 This is not a place where to store collectd plugins. It can:
 
@@ -36,7 +36,7 @@ collectd_plugin_python_plugins:
 Dependencies
 ------------
 
-https://github.com/CSC-IT-Center-for-Science/ansible-role-collectd
+https://github.com/CSCfi/ansible-role-collectd
 
 Example Playbook
 ----------------
