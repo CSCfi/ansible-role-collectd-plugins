@@ -9,7 +9,13 @@ collectd_conf_dir: "/etc/collectd.d"
 
 collectd_plugin_python_plugins: []
 
+collectd_plugin_python_plugins_packages:
+  - collectd-python 
+
 collectd_plugin_exec_plugins: []
+
+collectd_plugin_exec_plugins_packages:
+  - ruby
 
 collectd_plugin_all_plugins: "{{
   collectd_plugin_python_plugins +
