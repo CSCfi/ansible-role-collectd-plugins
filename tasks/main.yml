@@ -29,6 +29,17 @@
    notify:
      - restart collectd
 
+ - name: Install python_plugin requirement packages
+   package:
+     name: "{{ item }}"
+     state: latest
+   loop: "{{ collectd_plugin_python_plugins_packages }}"
+   when: |
+    ansible_os_family == 'RedHat' and
+    ansible_distribution_major_version >= "8"
+   notify:
+     - restart collectd
+
  - name: Configure_exec checks
    template: src=exec_plugin.conf.j2 dest={{ collectd_conf_dir }}/{{ item.name }}.conf owner=root mode=0644
    with_items: "{{ collectd_plugin_exec_plugins }}"
@@ -36,3 +47,13 @@
    notify:
      - restart collectd
 
+ - name: Install exec_plugin requirement packages
+   package:
+     name: "{{ item }}"
+     state: latest
+   loop: "{{ collectd_plugin_exec_plugins_packages }}"
+   when: |
+    ansible_os_family == 'RedHat' and
+    ansible_distribution_major_version >= "8"
+   notify:
+     - restart collectd
